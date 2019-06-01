@@ -1,0 +1,53 @@
+class node():
+    def __init__(self,loginId,password):
+        self.loginId=loginId
+        self.password=password
+        self.next=None
+class Linkedlist():
+    def __init__(self):
+        self.head=None
+    
+    def push(self,loginId,password):
+        new_node=node(loginId,password)
+        new_node.next=self.head
+        self.head=new_node
+        
+    def insertafter(self,prev_node,new_data):
+        if prev_node is None:
+            print("no prev node is there")
+            return
+        
+        new_node=node(new_data)
+        new_node.next=prev_node.next
+        prev_node.next=new_node
+        
+        
+    def printlist(self): 
+        temp = self.head 
+        c=0
+        while(temp):
+            c=c+1
+            print ("user name:"  +str( temp.loginId) ), 
+            print ("user password:" + str(temp.password)),
+            temp = temp.next
+            
+    def count(self):
+        c=0
+        temp=self.head
+        while(temp):
+            temp=temp.next
+            c=c+1
+            
+        print(c)
+                
+        
+if __name__=='__main__':         
+    mylist=Linkedlist()
+    mylist.push(str("masshhood"),123)
+    mylist.push(str("abhi"),567)
+    mylist.push(str("pathak"),789)
+  
+   
+    mylist.printlist()
+    mylist.count()
+    
